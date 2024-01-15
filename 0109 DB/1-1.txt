@@ -1,0 +1,4 @@
+SELECT C.CustomerID, C.CustomerName, SUM(P.Price * D.Quantity) AS "구매금액"
+FROM Customers as C, Orders as O, OrderDetails as D, Products as P
+WHERE C.CustomerID = O.CustomerID AND O.OrderID = D.OrderID AND D.ProductID = P.ProductID
+GROUP BY C.CustomerID

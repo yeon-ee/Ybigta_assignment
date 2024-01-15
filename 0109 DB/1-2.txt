@@ -1,0 +1,6 @@
+SELECT C.CategoryName, SUM(D.Quantity) AS `판매량`, SUM(P.Price * D.Quantity) AS `판매금액`
+FROM Categories as C, OrderDetails as D, Products as P
+WHERE C.CategoryID = P.CategoryID AND D.ProductID = P.ProductID
+GROUP BY C.CategoryName
+HAVING `판매량` > 2000
+ORDER BY `판매량` DESC;
